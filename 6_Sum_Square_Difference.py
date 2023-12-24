@@ -15,8 +15,9 @@ def ssd():
 
     for i in range(101):
         sum_ += i
+        sum_squ = sum_**2
 
-    print(square - sum_)
+    print(sum_squ - square)
 
     return
 
