@@ -15,5 +15,18 @@ What is the smallest positive number that is evenly divisible by all of the numb
 # multiply all numbers together
 
 from math import gcd
+from functools import reduce
 
-print(gcd(10,20))
+def lcm(a,b):
+    "Calculate the lowest common multiple of two integers a and b"
+    return a*b//gcd(a,b)
+
+# print(lcm(lcm(lcm(1,2),3),4))
+# print(reduce(lcm, range(1, 5)))
+
+def smallest_div(a):
+    smallest = reduce(lcm, range(1, a+1))
+    print(smallest)
+    return
+
+smallest_div(20)
