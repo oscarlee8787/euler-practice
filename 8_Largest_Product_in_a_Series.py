@@ -22,3 +22,26 @@ The four adjacent digits in the 1000-digit number that have the greatest product
 71636269561882670428252483600823257530420752963450
 Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
 '''
+
+def lp(text):
+    '''
+    split individual lines of text into elements in a list
+    for every element, multiply 13 adjacent numbers with for loop
+    store the results in a list
+    return the largest number in the list
+    '''
+    lines = text.splitlines()
+    list_ = []
+    for line in lines:
+        for i in range(len(line)-1):
+            product = int(line[i]) * int(line[i+1])
+            list_.append(product)
+
+    print(list_)
+    return
+
+text = '''73167176531330624919225119674426574742355349194934
+96983520312774506326239578318016984801869478851843
+85861560789112949495459501737958331952853208805511'''
+
+lp(text)
