@@ -24,3 +24,34 @@ The product of these numbers is 26 * 63 * 78 * 14 = 1788696.
 What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20 * 20 grid?
 
 '''
+
+sample = '''1 1 1 1 1 1 1 1
+2 2 2 2 2 2 2 2
+3 3 3 3 3 3 3 3
+4 5 6 7 8 1 2 3
+1 1 1 1 1 1 1 1
+2 2 2 2 2 2 2 2
+5 5 5 5 5 5 5 5
+3 3 3 3 3 3 3 3'''
+
+def solver(grid):
+    '''
+    start from the (3,3) position of the big grid, end at (len(grid)-3)
+    multiply positions (0,0)(1,1)(2,2)(3,3), (1,1)... (0,3)(1,3)(2,3)(3,3), (1,3)..., (2,3)..., (3,3)..., (3,0)(3,1)(3,2)(3,3), (3,1)..., (3,2)..., (3,3)...
+    '''
+    list_ = []
+    lines = grid.splitlines()
+    for i, v in enumerate(lines):
+        lines[i] = lines[i].replace(' ','')
+
+    print(lines)
+    print(lines[3])
+    print(lines[3][0])
+    print(lines[3][1])
+    # for i in range(3,5): # cursor position
+    #     for j in range(4):
+    #         print(lines[i][j]) # diagonal
+
+    return
+
+solver(sample)
