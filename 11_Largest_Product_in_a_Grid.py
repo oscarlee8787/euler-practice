@@ -29,7 +29,7 @@ sample = '''1 1 1 1 1 1 1 1
 2 2 2 2 2 2 2 2
 3 3 3 3 3 3 3 3
 4 5 6 7 8 1 2 3
-1 1 1 1 1 1 1 1
+9 8 7 6 5 4 3 2
 2 2 2 2 2 2 2 2
 5 5 5 5 5 5 5 5
 3 3 3 3 3 3 3 3'''
@@ -43,15 +43,39 @@ def solver(grid):
     lines = grid.splitlines()
     for i, v in enumerate(lines):
         lines[i] = lines[i].replace(' ','')
+        print(v)
 
     print(lines)
-    print(lines[3])
-    print(lines[3][0])
-    print(lines[3][1])
-    # for i in range(3,5): # cursor position
-    #     for j in range(4):
-    #         print(lines[i][j]) # diagonal
 
+    # horizontal
+    for i in range(3,5): # cursor position
+        for j in range(8-3):
+            product = 1
+            for k in range(4):
+                product *= int(lines[i][j+k])
+            print(product)
+
+    # vertical
+    for i in range(3,5):
+
+
+
+        # print(lines[i][0])
+        # print(lines[i][1])
+        # print(lines[i][2])
+        # print(lines[i][3])
+
+        # print(lines[i][1])
+        # print(lines[i][2])
+        # print(lines[i][3])
+        # print(lines[i][4])
+        # .
+        # .
+        # .
+        # print(lines[i][4])
+        # print(lines[i][5])
+        # print(lines[i][6])
+        # print(lines[i][7])
     return
 
 solver(sample)
