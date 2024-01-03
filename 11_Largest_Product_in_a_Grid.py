@@ -71,11 +71,30 @@ def solver(grid):
     # vertical
     for k in range(3,5):
         for i in range(8-3):
+            product = 1
             for j in range(4):
-                print(lines[i+j][k])
+                # print(lines[i+j][k])
+                product *= int(lines[i+j][k])
+            print(product)
+
+    # diagonal
+    print('diagonal:')
+    for i in range(8-3):
+        product = 1
+        for j in range(4):
+            product *= int(lines[i+j][i+j])
+        print(product)
 
 
+    # print(lines[0][0])
+    # print(lines[1][1])
+    # print(lines[2][2])
+    # print(lines[3][3])
 
+    # print(lines[1][1])
+    # print(lines[2][2])
+    # print(lines[3][3])
+    # print(lines[4][4])
 
         # print(lines[i][0])
         # print(lines[i][1])
