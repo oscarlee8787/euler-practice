@@ -34,6 +34,18 @@ sample = '''1 1 1 1 1 1 1 1
 5 5 5 5 5 5 5 5
 3 3 3 3 3 3 3 3'''
 
+sample = '''02345678
+12345678
+22345678
+32345678
+42345678
+52345678
+62345678
+72345678'''
+
+import numpy as np
+import pandas as pd
+
 def solver(grid):
     '''
     start from the (3,3) position of the big grid, end at (len(grid)-3)
@@ -55,8 +67,13 @@ def solver(grid):
                 product *= int(lines[i][j+k])
             print(product)
 
+    print('vertical:')
     # vertical
-    for i in range(3,5):
+    for k in range(3,5):
+        for i in range(8-3):
+            for j in range(4):
+                print(lines[i+j][k])
+
 
 
 
