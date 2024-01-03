@@ -25,11 +25,12 @@ What is the greatest product of four adjacent numbers in the same direction (up,
 
 '''
 
-sample = '''1 1 1 1 1 1 1 1
+sample = '''
+1 2 3 4 5 6 7 8
 2 2 2 2 2 2 2 2
 3 3 3 3 3 3 3 3
-4 5 6 7 8 1 2 3
-9 8 7 6 5 4 3 2
+4 5 6 9 9 1 2 3
+9 8 7 9 9 4 3 2
 2 2 2 2 2 2 2 2
 5 5 5 5 5 5 5 5
 3 3 3 3 3 3 3 3'''
@@ -67,13 +68,12 @@ def solver(grid):
                 product *= int(lines[i][j+k])
             print(product)
 
-    print('vertical:')
     # vertical
+    print('vertical:')
     for k in range(3,5):
         for i in range(8-3):
             product = 1
             for j in range(4):
-                # print(lines[i+j][k])
                 product *= int(lines[i+j][k])
             print(product)
 
@@ -85,33 +85,22 @@ def solver(grid):
             product *= int(lines[i+j][i+j])
         print(product)
 
+    # other diagonal
+    print('other')
+    for i in range(8-3):
+        for j in range(4):
+            for k in range
 
-    # print(lines[0][0])
-    # print(lines[1][1])
-    # print(lines[2][2])
-    # print(lines[3][3])
+    print(lines[0][6]) 7
+    print(lines[1][5]) 6
+    print(lines[2][4]) 5
+    print(lines[3][3]) 4
 
-    # print(lines[1][1])
-    # print(lines[2][2])
-    # print(lines[3][3])
-    # print(lines[4][4])
+    1
+    2
+    3
+    4
 
-        # print(lines[i][0])
-        # print(lines[i][1])
-        # print(lines[i][2])
-        # print(lines[i][3])
-
-        # print(lines[i][1])
-        # print(lines[i][2])
-        # print(lines[i][3])
-        # print(lines[i][4])
-        # .
-        # .
-        # .
-        # print(lines[i][4])
-        # print(lines[i][5])
-        # print(lines[i][6])
-        # print(lines[i][7])
     return
 
 solver(sample)
