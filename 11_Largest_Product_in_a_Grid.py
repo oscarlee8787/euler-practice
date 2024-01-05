@@ -24,15 +24,33 @@ The product of these numbers is 26 * 63 * 78 * 14 = 1788696.
 What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20 * 20 grid?
 
 '''
+# (0,6)(1,5)(2,4)(3,3)
+# (1,5)(2,4)(3,3)(2,4)
+# (2,4)(3,3)(4,2)(5,1)
 
-sample = '''1 1 1 1 1 1 1 1
+# (0,7)
+
+sample = '''
+1 2 3 4 5 6 7 8
 2 2 2 2 2 2 2 2
 3 3 3 3 3 3 3 3
-4 5 6 7 8 1 2 3
-9 8 7 6 5 4 3 2
+4 5 6 9 9 1 2 3
+9 8 7 9 9 4 3 2
 2 2 2 2 2 2 2 2
 5 5 5 5 5 5 5 5
 3 3 3 3 3 3 3 3'''
+
+sample = '''02345678
+12345678
+22345678
+32345678
+42345678
+52345678
+62345678
+72345678'''
+
+import numpy as np
+import pandas as pd
 
 def solver(grid):
     '''
@@ -56,26 +74,39 @@ def solver(grid):
             print(product)
 
     # vertical
-    for i in range(3,5):
+    print('vertical:')
+    for k in range(3,5):
+        for i in range(8-3):
+            product = 1
+            for j in range(4):
+                product *= int(lines[i+j][k])
+            print(product)
 
+    # diagonal
+    print('diagonal:')
+    for i in range(8-3):
+        product = 1
+        for j in range(4):
+            product *= int(lines[i+j][i+j])
+        print(product)
 
+    # other diagonal
+    print('other')
+    for i in range(6,9):
+        for j in range(4):
+            for k in range(4):
+                print(j+k, i-j-k)
 
-        # print(lines[i][0])
-        # print(lines[i][1])
-        # print(lines[i][2])
-        # print(lines[i][3])
+    # print(lines[0][6]) 7
+    # print(lines[1][5]) 6
+    # print(lines[2][4]) 5
+    # print(lines[3][3]) 4
 
-        # print(lines[i][1])
-        # print(lines[i][2])
-        # print(lines[i][3])
-        # print(lines[i][4])
-        # .
-        # .
-        # .
-        # print(lines[i][4])
-        # print(lines[i][5])
-        # print(lines[i][6])
-        # print(lines[i][7])
+    # 1
+    # 2
+    # 3
+    # 4
+
     return
 
 solver(sample)
