@@ -204,7 +204,14 @@ digits = '''37107287533902102798797998220837590246510135740250
 20849603980134001723930671666823555245252804609722
 53503534226472524250874054075591789781264330331690'''
 
-a = list(digits.replace('\n', ''))
-print(type(a))
-print(sum(a))
-# print(int(a)*100)
+# a = list(digits.replace('\n', ''))
+# a_int = [int(digit) for digit in a]
+
+# print(sum(a_int))
+
+digit_list = digits.splitlines()
+int_list = [int(digit) for digit in digit_list]
+sum = sum(int_list)
+sum_str = str(sum)
+
+print(sum_str[:10])
