@@ -34,4 +34,7 @@ for i in range(1, 1000000):
     term = collatz(i)
     term_list.append(term)
 
-print(term_list.index(max(term_list)))
+print(term_list.index(max(term_list)) + 1)
+
+# for i, e in enumerate(term_list):
+#     print(f'{i}: {e}')
