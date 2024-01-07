@@ -26,7 +26,12 @@ def collatz(n):
         else:
             n = 3 * n + 1
             count += 1
-    print(count)
-    return
+    return count
 
-collatz(13)
+term_list = []
+
+for i in range(1, 1000000):
+    term = collatz(i)
+    term_list.append(term)
+
+print(term_list.index(max(term_list)))
