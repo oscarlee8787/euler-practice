@@ -23,7 +23,7 @@ num_word_dict = {0:'',1:'one', 2:'two', 3:'three', 4:'four',
 18:'eighteen',
 19:'nineteen',
 20:'twenty',
-30:'thrity',
+30:'thirty',
 40:'forty',
 50:'fifty',
 60:'sixty',
@@ -33,47 +33,33 @@ num_word_dict = {0:'',1:'one', 2:'two', 3:'three', 4:'four',
 100:'hundred'}
 
 total = 0
-for i in range(99,105):
+for i in range(1,1000):
     if i//100: # if larger than 100
         hundred = len(num_word_dict[i//100]) + len(num_word_dict[100])
         i = i%100
         if i > 20:
-            ten = len(num_word_dict[i//10])
+            ten = len(num_word_dict[i//10*10])
             i = i%10
             unit = len(num_word_dict[i])
-            length = hundred + ten + unit + 3
+            length = hundred + ten + unit + len('and')
         elif i == 0:
             length = hundred
         else:
-            length = hundred + len(num_word_dict[i]) + 3
-
-        print(length)
+            length = hundred + len(num_word_dict[i]) + len('and')
+        # print(i, length)
+        total += length
     elif i>20:
-            ten = len(num_word_dict[i//10])
+            ten = len(num_word_dict[i//10*10])
             i = i%10
             unit = len(num_word_dict[i])
-            length = hundred + ten + unit + 3
-        elif i == 0:
-            length = hundred
-        else:
-            length = hundred + len(num_word_dict[i]) + 3
+            length = ten + unit
+            # print(i, length)
+            total += length
+    else:
+        length = len(num_word_dict[i])
+        # print(i, length)
+        total += length
 
-    # if i < 21:
-    #     length = len(num_word_dict[i])
-    #     total += length
-    # elif i//10 <= 10:
-    #     try: # if last digit is 0
-    #         hundred = len(num_word_dict[i//100])
-    #         ten = len(num_word_dict[i//10])
-    #         unit = len(num_word_dict[i%100])
-    #         length = hundred + ten + unit + 3
-    #         print(i, length)
-    #     except:
-    #         length = len(num_word_dict[i])
-    #         print(i, length)
+print(total+len('onethousand'))
 
-    #     # print(i%10)
-    #     # print(len(num_word_dict[int(len(str(i//10))*10)]))
-    #     total += length
-
-# print(total)
+# print(len(num_word_dict[0]))
