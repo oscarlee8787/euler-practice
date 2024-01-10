@@ -31,10 +31,10 @@ it cannot be solved by brute force, and requires a clever method! ;o)'''
 # select line[4] [2] or [3] | [2] ....
 
 triangle = '''  75
-               9 64
+               95 64
               17 47 82
-             18 35 87 100
-            20 04 82 47 650
+             18 35 87 10
+            20 04 82 47 65
            19 01 23 75 03 34
           88 02 77 73 07 63 67
          99 65 04 28 06 16 70 92
@@ -48,6 +48,10 @@ triangle = '''  75
 
 def max_path(triangle):
     '''turns triangle into list of lists with spaces removed
+    turns each element in list to integers
+    selects max of two adjacent elements of layer below
+    sums all selected elements
+    returns sum
     '''
     lines = triangle.splitlines()
     for idx, ele in enumerate(lines):
@@ -57,15 +61,18 @@ def max_path(triangle):
 
     selection = 0
     position = -1
+    max_sum = 0
 
     for line in lines:
-        print(position, position+1)
+        # print(position, position+1)
         selection = max(line[position], line[position+1])
         index = line.index(selection)
         position = index
-        print(index)
-        print(selection)
+        # print(index)
+        # print(selection)
+        max_sum += selection
+        # print(max_sum)
 
-
+    print(max_sum)
 
 max_path(triangle)
