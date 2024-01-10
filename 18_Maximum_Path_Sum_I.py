@@ -46,7 +46,7 @@ triangle = '''  75
   63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23'''
 
-def max_path(triangle):
+def max_path_greedy(triangle):
     '''turns triangle into list of lists with spaces removed
     turns each element in list to integers
     selects max of two adjacent elements of layer below
@@ -75,4 +75,27 @@ def max_path(triangle):
 
     print(max_sum)
 
+
+def max_path(triangle):
+    lines = triangle.splitlines()
+    for idx, ele in enumerate(lines):
+        lines[idx] = ele.split()
+        lines[idx] = [int(i) for i in lines[idx]]
+    lines.reverse()
+
+    for idx, ele in enumerate(lines):
+        # print(ele)
+
+        if len(ele)==1:
+            print(ele[0])
+            break
+
+        # for every position, check max(position, position+1) of previous line
+        for i in range(len(lines[idx+1])):
+            # print(max(lines[idx][i], lines[idx][i+1]))
+            # print(lines[idx+1][i])
+            lines[idx+1][i] += max(lines[idx][i], lines[idx][i+1])
+            # print(lines[idx+1][i])
+
+# max_path_greedy(triangle)
 max_path(triangle)
