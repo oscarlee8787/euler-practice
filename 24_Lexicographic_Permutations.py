@@ -10,7 +10,27 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 
 # sort in ascending order
 # return the millionth value of the given digits
 
-list_ = [0, 1, 2]
+list_ = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+permutation_list = []
 
-for i in list_:
-    for j in list_
+def permutation(a, size):
+    if size == 1:
+        number = ''.join(map(str, a))
+        permutation_list.append(int(number))
+
+    for i in range(size):
+        permutation(a, size-1)
+
+        # if size is odd, swap 0th i.e (first)
+        # and (size-1)th i.e (last) element
+        # else If size is even, swap ith
+        # and (size-1)th i.e (last) element
+        if size%2 == 1:
+            a[0], a[size-1] = a[size-1], a[0]
+        else:
+            a[i], a[size-1] = a[size-1], a[i]
+
+size = len(list_)
+permutation(list_, size)
+permutation_list.sort()
+print(permutation_list[999999])
