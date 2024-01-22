@@ -25,19 +25,28 @@ Find the value of d < 1000 for which 1/d contains the longest recurring cycle in
 # l(14) == 6 --> (10^6) % 14 ==
 # 10**k - 1 % denominator == 0
 
-# a = 10**n
-# smallest n where (1/number) - (1/7)*10**n == integer
-def rep_len(n):
-    for i in range(1,30):
-        result = 1/n - 1/n*10**i
-        print(result)
-        print(str(result)[-5:-1])
-        if str(result)[-5:-1] == '9999' or result.is_integer():
-            # print(str(result)[-5:])
-            print(i)
-            break
-        # print(round(result, 4))
-        # if result
+# print(1/7)
+# print(10//7)
+# # 10-7=3
+# print(30//7)
+# # 30-28-2
+# print(20//7)
+# # 20-14=6
+# print(60//7)
 
+def repeating_cycle(denom, num=1):
+    remainders = []
+    rems = None
+    while rems not in remainders:
+        remainders.append(rems)
+        num *= 10
+        rems = num % denom
+    remainders.pop(0)
+    return len(remainders)
 
-rep_len(43)
+length = {}
+
+for i in range(1, 1000): # create a dict for numbers from 1 to 999, its corresponding number of repeating cycle
+    length[i] = repeating_cycle(i)
+
+print(max(length, key=length.get)) # find in dictionary, the key that has the greatest value
