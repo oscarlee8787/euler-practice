@@ -9,23 +9,23 @@ For which value of p < 1000, is the number of solutions maximised?
 # a + b + c = p
 # c = p - a - b
 # alist = []
-def triangles(p):
-    count_max = 0
-    count = 0
+count_max = 0
+count = 0
+for p in range(500):
     for a in range(1,int(p/2)):
         # for b in range(int((p**2 - a**2)**0.5)-1, p-a):
         for b in range(a, p-a):
             # print(b)
             if a**2 + b**2 == (p - a - b)**2:
                 count += 1
-                if count > count_max:
-                    count_max = count
+    if count > count_max:
+        count_max = count
                 # print(a, b)
-    return count_max
-n = []
-for i in range(500):
-    count = triangles(i)
-    n.append(count)
+print(count_max)
+# n = []
+# for i in range(500):
+#     count = triangles(i)
+#     n.append(count)
 
 # print(n)
 
