@@ -5,3 +5,22 @@ It can be seen that P_4 + P_7 = 22 + 70 = 92 = P_8. However, their difference, 7
 Find the pair of pentagonal numbers, P_j and P_k, for which their sum and difference
 are pentagonal and D = |P_k - P_j| is minimised
 what is the value of D?'''
+
+from itertools import combinations
+
+pent_set = set()
+for i in range(1, 10000):
+    pent = int(i * (3 * i - 1) / 2)
+    pent_set.add(pent)
+
+# print(pent_set)
+
+combination_list = list(combinations(pent_set, 2))
+
+diff_sum_list = []
+for pair in combination_list:
+    diff = abs(pair[0] - pair[1])
+    summ = pair[0] + pair[1]
+    if diff in pent_set and summ in pent_set:
+        diff_sum_list.append(diff)
+print(min(diff_sum_list))
