@@ -24,6 +24,13 @@ def pandigitals():
     pandigits = [''.join(d) for d in permutations(digits)]
     # for num in pandigits:
     #     if num[]
-    print(pandigits[9*8*7*6*5*4*3*2:])
+    return pandigits[9*8*7*6*5*4*3*2:]
 
-pandigitals()
+pandigits = pandigitals()
+
+ans = 0
+for num in pandigits:
+    if int(num[1:4]) % 2 == 0 and int(num[2:5]) % 3 == 0 and int(num[3:6]) % 5 == 0 and int(num[4:7]) % 7 == 0 and int(num[5:8]) % 11 == 0 and int(num[6:9]) % 13 == 0 and int(num[7:]) % 17 == 0:
+        ans += int(num)
+
+print(ans)
