@@ -19,3 +19,33 @@ H_n=n(2n - 1)
 It can be verified that T_{285} = P_{165} = H_{143} = 40755.
 Find the next triangle number that is also pentagonal and hexagonal.
 '''
+
+def tri(n):
+    tri_set = set()
+    for i in range(1,n):
+        t = int(i * (i + 1) / 2)
+        tri_set.add(t)
+    return tri_set
+
+def pent(n):
+    pent_set = set()
+    for i in range(1,n):
+        t = int(i * (3 * i - 1) / 2)
+        pent_set.add(t)
+    return pent_set
+
+def hex(n):
+    hex_set = set()
+    for i in range(1,n):
+        t = int(i * (2 * i - 1))
+        hex_set.add(t)
+    return hex_set
+
+t = tri(500000)
+p = pent(200000)
+h = hex(200000)
+
+for n in h:
+    if n in p:
+        if n in t:
+            print(n)
