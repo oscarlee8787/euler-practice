@@ -13,18 +13,18 @@ Find the first four consecutive integers to have four distinct prime factors eac
 What is the first of these numbers?
 '''
 
-def is_prime(n):
-    if n == 2 or n == 1:
-        return True
-
-    if n % 2 == 0:
-        return False
-
-    for i in range(3, n, 2):
-        if n % i == 0:
-            return False
-
-    return True
+def primes(n):
+    i = 2
+    s = set()
+    while i * i <= n:
+        if n % i != 0:
+            i += 1
+        else:
+            n //= i
+            s.add(i)
+    if n > 1:
+        s.add(n)
+    return len(s)
 
 def prime_factors(n):
     f = []
@@ -41,23 +41,18 @@ def prime_factors(n):
             if n == 1:
                 return set(f)
 
-def funk(n):
-    i = 10000
-    while i < n:
-        # if is_prime(i) is False:
-        if len(prime_factors(i)) == 4:
-            if len(prime_factors(i+1)) == 4:
-                if len(prime_factors(i+2)) == 4:
-                    if len(prime_factors(i+3)) == 4: # and prime_factors(i) & prime_factors(i+1) & prime_factors(i+2) & prime_factors(i+3) == set():
-                        return i
-                    i += 1
-                i += 1
-            i += 1
+def funk(n, target):
+    i = 1
+    while i <= n:
+        if primes(i) >= target and primes(i + 1) >= target and primes(i + 2) >= target and primes(i + 3) >= target:
+            return i
         i += 1
-        # else:
-        #     i += 1
 
 
-# print(funk(20000))
 
-print(prime_factors(20233))ffffdffcuuyjhv,ncc
+
+print(funk(500000, 4))
+
+# print(prime_factors(20233))
+
+# print(primes(81))
