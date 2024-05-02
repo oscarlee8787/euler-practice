@@ -27,6 +27,7 @@ How many different ways can £2 (200p) be made using any number of coins?
 # 20: 10 10
 # 50: 20, 20, 10
 
+'''
 start = 5
 denom = [5,2,1]
 
@@ -42,3 +43,32 @@ def count_d(num):
     return
 
 count_d(5)
+
+'''
+# 10
+# 5 5
+# 5 2 2 1
+# 5 2 1 1 1 1
+# 5 111111
+# 2 2 1 111111
+#
+#
+
+# 5
+# 2+2+1
+# 2111
+# 11111
+
+
+target = 7
+coins = [1, 2, 3]
+ways = [1] + [0]*target
+
+print(ways)
+
+for coin in coins:
+    for i in range(coin, target+1):
+        ways[i] += ways[i-coin]
+    print(coin, ways)
+
+print(ways[target])
