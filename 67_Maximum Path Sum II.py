@@ -15,16 +15,3 @@ with open('resources/0067_triangle.txt') as file:
             break
         for i in range(len(triangle[idx+1])):
             triangle[idx+1][i] += max(triangle[idx][i], triangle[idx][i+1])
-
-
-
-    # pos = 0
-    # ans = 0
-    # left = 0
-    # right = left + 1
-    # for i in range(length):
-    #     if text[i+1][left] >
-    #     new_num = max(text[i+1][left], text[i+1][right])
-    #     ans += new_num
-    #     pos =
-    # print(text[-1])
